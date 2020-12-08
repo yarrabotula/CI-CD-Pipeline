@@ -22,6 +22,5 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west2-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=kubernetesproject'
   
-  _VERSION: v1.0
     
 
