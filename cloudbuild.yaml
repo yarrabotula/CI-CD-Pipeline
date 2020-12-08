@@ -1,26 +1,20 @@
 steps:
 #First Clone from Google Cloud Source Repository  
-- name: 'gcr.io/brilliant-scene-290913/git'
+- name: 'gcr.io/cloud-builders/git'
   args: ['clone','https://github.com/yarrabotula/CI-CD-Pipeline.git']
 
-#Build the image 
-- name: 'gcr.io/brilliant-scene-290913/hello123'
-  args: ['build','-t','gcr.io/brilliant-scene-290913/hello123:latest','.']
-
-#Push the image  
-- name: 'gcr.io/brilliant-scene-290913/hello123'
-  args: ['push','gcr.io/brilliant-scene-290913/hello123:latest']
-  
-#Update the container image using kubectl set
-- name: 'gcr.io/cloud-builders/kubectl'
+steps:
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/brilliant-scene-290913/hello123:latest", "."]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/project-id/image:tag"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
   args:
-  - 'set'
-  - 'image'
-  - 'deployment/venkat1234'
-  - 'hello123=gcr.io/brilliant-scene-290913/hello123:v1'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=europe-west2-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=kubernetesproject'
-  
-    
-
+  - run
+  - --filename=kubernetes-resource-file
+  - --image=gcr.io/project-id/image:tag
+  - --location=location
+  - --cluster=cluster
