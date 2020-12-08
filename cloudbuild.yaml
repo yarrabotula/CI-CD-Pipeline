@@ -1,6 +1,6 @@
 steps:
 #First Clone from Google Cloud Source Repository  
-- name: 'gcr.io/cloud-builders/git'
+- name: 'gcr.io/brilliant-scene-290913/git'
   args: ['clone','https://github.com/yarrabotula/CI-CD-Pipeline.git']
 
 #Build the image 
