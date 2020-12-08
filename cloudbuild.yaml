@@ -15,5 +15,5 @@ steps:
   args:
   - run
   - --image=gcr.io/brilliant-scene-290913/hello123:latest
-  - --location=us-central1-c
-  - --cluster=hello
+  - --location=europe-west2-a
+  - --cluster=kubernetesproject
