@@ -15,6 +15,6 @@ steps:
   args:
   - run
   - --filename=kubernetes-resource-file
-  - --image=gcr.io/project-id/image:tag
-  - --location=location
-  - --cluster=cluster
+  - --image=gcr.io/brilliant-scene-290913/hello123:latest
+  - --location=europe-west2-a
+  - --cluster=kubernetesproject
