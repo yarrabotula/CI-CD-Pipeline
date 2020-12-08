@@ -4,11 +4,11 @@ steps:
   args: ['clone','https://github.com/yarrabotula/CI-CD-Pipeline.git']
 
 #Build the image 
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/brilliant-scene-290913/hello123'
   args: ['build','-t','gcr.io/brilliant-scene-290913/hello123:latest','.']
 
 #Push the image  
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/brilliant-scene-290913/hello123'
   args: ['push','gcr.io/brilliant-scene-290913/hello123:latest']
   
 #Update the container image using kubectl set
