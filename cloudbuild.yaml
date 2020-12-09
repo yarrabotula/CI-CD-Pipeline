@@ -2,20 +2,21 @@ steps:
 #First Clone from Google Cloud Source Repository  
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone','https://github.com/yarrabotula/CI-CD-Pipeline.git']
+  
+  #Build the image 
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build','-t','gcr.io/brilliant-scene-290913/hello123:latest','.']
 
-steps:
-  # build the container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["build", "-t", "gcr.io/brilliant-scene-290913/hello123:latest", "."]
-  # push container image
-- name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/brilliant-scene-290913/hello123:latest"]
-  #Update the container image using kubectl set
+#Push the image  
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push','gcr.io/brilliant-scene-290913/hello123:latest']
+  
+#Update the container image using kubectl set
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'set'
   - 'image'
-  - 'deployment/hello123'
+  - 'deployment/${_DEPLOYMENTNAME}'
   - 'hello123=gcr.io/brilliant-scene-290913/hello123:latest'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
