@@ -22,21 +22,4 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west2-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=kubernetesproject'
   
-  substitutions:
-    #GCP Specific configuration. Please DON'T change anything
-    _PROJECT: My First Project
-    _ZONE: europe-west2-a
-    _GKE_CLUSTER: kubernetesproject
-    
-    #Repository Specific configuration. DevOps can change this settings
-    _DEPLOYMENTNAME: nginx-1
-    _CONTAINERNAME:  nginx-1
-    _REPO_NAME: CI-CD-Pipeline
-    
-    # Developers ONLY change
-    _VERSION: v1.0
-    
-    options:
-    substitution_option: 'ALLOW_LOOSE'
-    
-    
+  
