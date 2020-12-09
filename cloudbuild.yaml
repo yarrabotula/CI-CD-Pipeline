@@ -15,10 +15,12 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
  # deploy container image to GKE
-- name: "gcr.io/cloud-builders/gke-deploy"
+- name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - run
-  - --image=gcr.io/brilliant-scene-290913/hello123:latest
+  - 'set'
+  - 'image'
+  - 'deployment/hello123'
+  - 'hello123=gcr.io/brilliant-scene-290913/hello123:latest'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello'
