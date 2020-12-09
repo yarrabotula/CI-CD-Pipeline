@@ -14,10 +14,10 @@ steps:
 #Update the container image using kubectl set
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'set'
-  - 'image'
-  - 'deployment/hello123'
-  - 'image=gcr.io/brilliant-scene-290913/hello123:latest'
-  env:
+ # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --image=gcr.io/brilliant-scene-290913/hello123:latest
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hello'
