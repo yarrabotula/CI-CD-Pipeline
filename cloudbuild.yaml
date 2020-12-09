@@ -35,7 +35,7 @@ steps:
     # Developers ONLY change
     _VERSION: v1.0
     
-   options:
+    options:
     substitution_option: 'ALLOW_LOOSE'
     
     
