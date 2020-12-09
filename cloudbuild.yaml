@@ -21,6 +21,7 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west2-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=kubernetesproject'
+  
   substitutions:
     #GCP Specific configuration. Please DON'T change anything
     _PROJECT: My First Project
