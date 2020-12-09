@@ -16,8 +16,23 @@ steps:
   args:
   - 'set'
   - 'image'
-  - 'deployment/nginx-8'
-  - 'nginx-8=gcr.io/brilliant-scene-290913/hello123:latest'
+  - 'deployment/nginx-1'
+  - 'nginx-1=gcr.io/brilliant-scene-290913/hello123:latest'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west2-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=kubernetesproject'
+  substitutions:
+    #GCP Specific configuration. Please DON'T change anything
+    _PROJECT: My First Project
+    _ZONE: europe-west2-a
+    _GKE_CLUSTER: kubernetesproject
+    
+    #Repository Specific configuration. DevOps can change this settings
+    _DEPLOYMENTNAME: nginx-1
+    _CONTAINERNAME:  nginx-1
+    _REPO_NAME: CI-CD-Pipeline
+    
+    options:
+    substitution_option: 'ALLOW_LOOSE'
+    
+    
