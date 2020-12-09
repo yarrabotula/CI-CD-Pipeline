@@ -16,7 +16,6 @@ steps:
   args:
   - 'set'
   - 'image'
-  - 'deployment/hello123'
   - 'hello123=gcr.io/brilliant-scene-290913/hello123:latest'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west2-a'
