@@ -16,7 +16,7 @@ steps:
   args:
   - 'set'
   - 'image'
-  - 'deployment/${_DEPLOYMENTNAME}'
+  - 'deployment/ABCD'
   - 'hello123=gcr.io/brilliant-scene-290913/hello123:latest'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
